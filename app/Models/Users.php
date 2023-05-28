@@ -5,7 +5,7 @@ namespace App\Models;
 use Faker\Generator;
 use CodeIgniter\Model;
 
-class User extends Model
+class Users extends Model
 {
     // protected $DBGroup          = 'default';
     protected $table            = 'users';
@@ -17,7 +17,7 @@ class User extends Model
         'username',
         'email',
         'mobile',
-        'password'
+        // 'password'
     ];
 
     public function fake(Generator &$faker)
@@ -30,5 +30,24 @@ class User extends Model
             'mobile'    => $faker->phoneNumber(),
             'password'  => password_hash($faker->word(), PASSWORD_DEFAULT)
         ];
+    }
+
+    public function getUsers($id = null)
+    {
+        if (empty($id)) {
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function getNames()
+    {
+        $results = [];
+        foreach ($this->db->getFieldNames($this->table) as $name) {
+            $results[] = ucwords(str_replace('_', ' ', $name));
+        }
+
+        return $results;
     }
 }
