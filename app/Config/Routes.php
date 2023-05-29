@@ -31,8 +31,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 $routes->group('admin', static function ($routes) {
-    $routes->get('/', 'Admin\Home::index');
+    $routes->get('/', 'Admin\Home::index', ['as' => 'admin.dashboard']);
 });
+$routes->get('sandbox/', 'Front\Home::sandbox');
 $routes->get('/', 'Front\Home::index');
 
 /*

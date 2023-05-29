@@ -37,15 +37,19 @@ class Assets extends \Tatter\Assets\Config\Assets
     // Relative to fileBase, no leading/trailing slashes
     public $routes = [
         '' => [
-            'css/bootstrap.min.css',
-            'css/datatables.min.css',
-            'js/jquery.slim.min.js',
-            'js/bootstrap.min.js',
-            'js/datatables.min.js',
-            'js/kick.js',
+            'libraries/bootstrap/css/bootstrap.min.css',
+            'libraries/datatables/css/datatables.min.css',
+            'libraries/jquery.slim.min.js',
+            'libraries/datatables/js/datatables.min.js',
+            'libraries/bootstrap/js/bootstrap.bundle.min.js',
+            'custom/js/kick.js',
         ],
         // 'admin' => [
-        //     '',
+        //     'libraries/smartadmin/css/vendors.bundle.css',
+        //     'libraries/smartadmin/css/app.bundle.cs',
+        //     'libraries/smartadmin/css/skins/skin-master.css',
+        //     'libraries/smartadmin/js/vendors.bundle.js',
+        //     'libraries/smartadmin/js/app.bundle.js',
         // ],
     ];
 }

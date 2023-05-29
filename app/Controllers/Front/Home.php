@@ -16,20 +16,17 @@ class Home extends BaseController
         $data = [
             'title' => 'Users',
             'table' => $table,
-            'data'  => $this->coverPasswords(model('Users')->getUsers())
+            'data'  => model('users')->coverPasswords(model('Users')->getUsers())
         ];
 
         return view('front/home', $data);
     }
 
-    protected function coverPasswords(array $data): array
+    public function sandbox()
     {
-        $results = [];
-        foreach ($data as $row) {
-            $row['password'] = '*** hidden ***';
-            $results[] = $row;
-        }
-
-        return $results;
+        return view('front/sandbox', [
+            'title' => 'Sandbox',
+            'posts' => model('sandbox')->getPosts()
+        ]);
     }
 }

@@ -17,7 +17,7 @@ class Users extends Model
         'username',
         'email',
         'mobile',
-        // 'password'
+        'password'
     ];
 
     public function fake(Generator &$faker)
@@ -46,6 +46,19 @@ class Users extends Model
         $results = [];
         foreach ($this->db->getFieldNames($this->table) as $name) {
             $results[] = ucwords(str_replace('_', ' ', $name));
+        }
+
+        return $results;
+    }
+
+    public function coverPasswords(array $data): array
+    {
+        $results = [];
+        foreach ($data as $row) {
+            if (isset($row['password'])) {
+                $row['password'] = '*** hidden ***';
+                $results[] = $row;
+            }
         }
 
         return $results;
