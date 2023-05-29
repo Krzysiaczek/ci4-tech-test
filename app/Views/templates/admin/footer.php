@@ -11,7 +11,7 @@
             </div>
             <div>
                 <ul class="list-table m-0">
-                    <li><a href="intel_introduction.html" class="text-secondary fw-700">About</a></li>
+                    <li><a href="<?= route_to('admin.home')?>"" class="text-secondary fw-700">About</a></li>
                     <li class="pl-3"><a href="info_app_licensing.html" class="text-secondary fw-700">License</a></li>
                     <li class="pl-3"><a href="info_app_docs.html" class="text-secondary fw-700">Documentation</a></li>
                     <li class="pl-3 fs-xl"><a href="https://wrapbootstrap.com/user/MyOrange" class="text-secondary"
@@ -49,7 +49,49 @@
 <script src="/assets/libraries/smartadmin/js/vendors.bundle.js"></script>
 <script src="/assets/libraries/smartadmin/js/app.bundle.js"></script>
 
+
 <!--This page contains the basic JS and CSS files to get started on your project. If you need aditional addon's or plugins please see scripts located at the bottom of each page in order to find out which JS/CSS files to add.-->
+
+<script src="/assets/libraries/smartadmin/js/datagrid/datatables/datatables.bundle.js"></script>
+<script>
+    /* demo scripts for change table color */
+    /* change background */
+    $(function() {
+        $('#myTable').DataTable({
+            columnDefs: [
+                {
+                    targets: 5,
+                    data: "slug",
+                    data_name: "username",
+                    render: function ( data, type, row, meta ) {
+                        return '<a href="/admin/user/'+data+'" target="_self">'+data+'</a>';
+                    }
+                },
+                {
+                    target: 6,
+                    visible: false,
+                    searchable: false,
+                }
+            ],
+            responsive: true
+        });
+
+        $('.js-thead-colors a').on('click', function()
+        {
+            var theadColor = $(this).attr("data-bg");
+            console.log(theadColor);
+            $('#dt-basic-example thead').removeClassPrefix('bg-').addClass(theadColor);
+        });
+
+        $('.js-tbody-colors a').on('click', function()
+        {
+            var theadColor = $(this).attr("data-bg");
+            console.log(theadColor);
+            $('#dt-basic-example').removeClassPrefix('bg-').addClass(theadColor);
+        });
+    });
+
+</script>
 </body>
 <!-- END Body -->
 

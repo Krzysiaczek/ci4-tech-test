@@ -44,12 +44,16 @@ class Assets extends \Tatter\Assets\Config\Assets
             'libraries/bootstrap/js/bootstrap.bundle.min.js',
             'custom/js/kick.js',
         ],
-        // 'admin' => [
+        // TODO Need to upgrade Tatter/Assets to ver 3 - still not released and buggy
+        // 'admin*' => [
         //     'libraries/smartadmin/css/vendors.bundle.css',
         //     'libraries/smartadmin/css/app.bundle.cs',
         //     'libraries/smartadmin/css/skins/skin-master.css',
         //     'libraries/smartadmin/js/vendors.bundle.js',
         //     'libraries/smartadmin/js/app.bundle.js',
+        // ],
+        // 'admin/users' => [
+        //     'custom/js/kick.js',
         // ],
     ];
 }

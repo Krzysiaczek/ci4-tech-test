@@ -56,7 +56,7 @@ class Users extends Model
         $results = [];
         foreach ($data as $row) {
             if (isset($row['password'])) {
-                $row['password'] = '*** hidden ***';
+                $row['password'] = '**********';
                 $results[] = $row;
             }
         }

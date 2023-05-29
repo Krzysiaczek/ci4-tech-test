@@ -11,9 +11,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 
 <head>
     <meta charset="utf-8">
-    <title>
-        Page Title - Category - SmartAdmin v4.5.1
-    </title>
+    <title><?= $title ?? 'Admin Dashboard'?></title>
     <meta name="description" content="Page Title">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
@@ -26,6 +24,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
     <link id="appbundle" rel="stylesheet" media="screen, print" href="/assets/libraries/smartadmin/css/app.bundle.css">
     <link id="mytheme" rel="stylesheet" media="screen, print" href="#">
     <link id="myskin" rel="stylesheet" media="screen, print" href="/assets/libraries/smartadmin/css/skins/skin-master.css">
+    <link rel="stylesheet" media="screen, print" href="/assets/libraries/smartadmin/css/datatables/datatables.bundle.css">
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/libraries/smartadmin/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/libraries/smartadmin/img/favicon/favicon-32x32.png">
@@ -59,7 +58,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 		>>> more settings are described inside documentation page >>>
 	-->
 
-<body class="mod-bg-1 ">
+<body class="mod-bg-1 mod-nav-link">
     <!-- DOC: script to save and load page settings -->
     <script>
         /**

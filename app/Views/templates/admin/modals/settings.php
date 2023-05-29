@@ -376,7 +376,7 @@
                                         <div class="bg-white border-bottom border-primary py-1"></div>
                                         <div class="bg-faded flex-1 pt-3 pb-3 px-2">
                                             <div class="py-3"
-                                                style="background:url('assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
+                                                style="background:url('/assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
                                             </div>
                                         </div>
                                     </div>
@@ -393,7 +393,7 @@
                                         <div class="bg-white border-bottom border- py-1"></div>
                                         <div class="bg-white flex-1 pt-3 pb-3 px-2">
                                             <div class="py-3"
-                                                style="background:url('assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
+                                                style="background:url('/assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
                                             </div>
                                         </div>
                                     </div>
@@ -410,7 +410,7 @@
                                         <div class="bg-fusion-600 border-bottom py-1"></div>
                                         <div class="bg-fusion-300 flex-1 pt-3 pb-3 px-2">
                                             <div class="py-3 opacity-30"
-                                                style="background:url('assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
+                                                style="background:url('/assets/libraries/smartadmin/img/demo/s-1.png') top left no-repeat;background-size: 100%;">
                                             </div>
                                         </div>
                                     </div>

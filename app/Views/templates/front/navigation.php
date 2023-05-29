@@ -8,8 +8,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item <?= url_is('') ? 'active' : '' ?>">
-                    <a class="nav-link pl-0" href="/">
+                <li class="nav-item <?= url_is('users*') ? 'active' : '' ?>">
+                    <a class="nav-link pl-0" href="/users">
                         Users
                         <?= url_is('') ? '<span class="sr-only">(current)</span>' : '' ?>
                     </a>
@@ -23,7 +23,7 @@
                 </li>
 
                 <li class="nav-item <?= url_is('admin*') ? 'active' : '' ?>">
-                    <a class="nav-link" href="<?= route_to('admin.dashboard') ?>">
+                    <a class="nav-link" href="<?= route_to('admin.home') ?>">
                         Admin
                         <?= url_is('admin*') ? '<span class="sr-only">(current)</span>' : '' ?>
                     </a>
