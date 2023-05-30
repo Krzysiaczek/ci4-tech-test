@@ -6,6 +6,7 @@
 <div class="subheader">
     <h1 class="subheader-title">
         <i class='subheader-icon fal fa-table'></i> Tables: <span class='fw-300'>Users</span>
+        <small>by Krzysztof Dabrowski</small>
     </h1>
 </div>
 <div class="alert alert-primary">

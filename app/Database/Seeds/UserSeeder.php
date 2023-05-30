@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         $this->db->table('users')->truncate();
 
-        $fabricator = new Fabricator(User::class);
+        $fabricator = new Fabricator(Users::class);
         $fabricator->create(self::HOW_MANY);
     }
 }

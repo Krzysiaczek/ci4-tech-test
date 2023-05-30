@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark flex-column flex-md-row bd-navbar pl-0 pr-0">
     <!-- <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar"> -->
     <div class="ml-5">
-        <a class="navbar-brand" href="/">CodeIgniter4 Crud Tech Test</a>
+        <a class="navbar-brand" href="/">CodeIgniter4 Crud Tech Test<br><small>by Krzysztof Dabrowski</small></a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

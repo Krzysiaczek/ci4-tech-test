@@ -4,8 +4,9 @@
 
 <div class="subheader">
     <h1 class="subheader-title">
-        <i class='subheader-icon fal fa-circle-info'></i>
+        <i class='subheader-icon fal fa-info-circle'></i>
         Codeigniter 4 <span class='fw-300'> PHP Technical Test</span>
+        <small>by Krzysztof Dabrowski</small>
     </h1>
 
 </div>
