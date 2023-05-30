@@ -4,7 +4,9 @@ namespace App\Controllers\Front;
 
 use CodeIgniter\View\Table;
 use App\Controllers\BaseController;
+use App\Models\Users;
 use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 
 class Home extends BaseController
 {
@@ -41,19 +43,30 @@ class Home extends BaseController
 
         $post = $this->request->getPost();
 
-        $data['status'] = 'success';
-        $data['message'] = 'This is the success message';
+        $data = $this->verifyData($post);
 
-        $validation = \Config\Services::validation();
-        // $validation->setRules(/* */);
-
-        if (!$validation->run($post, 'users')) {
-            $data['status'] = 'error';
-            $data['reasons'] = $validation->getErrors();
-            $data['csrf'] = csrf_hash();
+        if ($data['status'] == 'error') {
+            return $this->response->setJSON($data);
         }
 
-        return json_encode($data);
+        try {
+            $model = model(Users::class);
+            $model->save([
+                'firstname' => $post['firstname'],
+                'lastname' => $post['lastname'],
+                'username' => $post['username'],
+                'mobile' => $post['mobile'],
+                'email' => $post['email'],
+                'password' => $post['password'],
+            ]);
+        } catch (DatabaseException $e) {
+            log_message('error', 'Unable to save the User: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error', 'reasons' => 'Internal Error: Data has not been saved!'
+            ]);
+        }
+
+        return $this->response->setJSON($data);
     }
 
     public function sandbox()
@@ -62,5 +75,20 @@ class Home extends BaseController
             'title' => 'Sandbox',
             'posts' => model('sandbox')->getPosts(),
         ]);
+    }
+
+    protected function verifyData($post)
+    {
+        $data['status'] = 'success';
+
+        $validation = \Config\Services::validation();
+
+        if (!$validation->run($post, 'users')) {
+            $data['status'] = 'error';
+            $data['reasons'] = $validation->getErrors();
+            $data['csrf'] = csrf_hash();
+        }
+
+        return $data;
     }
 }

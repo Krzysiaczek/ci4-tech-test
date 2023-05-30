@@ -42,10 +42,7 @@ $( function () {
     $(document).on('click', '#add', function(e) {
         e.preventDefault();
 
-        if($("#form")[0].checkValidity()) {
-            alert('validated');
-        }
-        else {
+        if(!$("#form")[0].checkValidity()) {
             $("#form")[0].reportValidity();
             return false
         }
@@ -84,12 +81,14 @@ $( function () {
                 }
 
                 if (data.status == "success") {
-                    fetch();
-                    $('#exampleModal').modal('hide')
+                    $('#myModal').modal('hide')
                     $("#form")[0].reset()
-                    Command: toastr.success("Data saved!")
+                    toastr.success("Data saved!")
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
                 } else {
-                    Command: toastr.error(reasons)
+                    toastr.error(reasons)
                     csrf = data.csrf
                 }
             }
