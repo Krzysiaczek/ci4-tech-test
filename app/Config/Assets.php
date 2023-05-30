@@ -39,7 +39,7 @@ class Assets extends \Tatter\Assets\Config\Assets
         '' => [
             'libraries/bootstrap/css/bootstrap.min.css',
             'libraries/datatables/css/datatables.min.css',
-            'libraries/jquery.slim.min.js',
+            'libraries/jquery.3.7.0.min.js',
             'libraries/datatables/js/datatables.min.js',
             'libraries/bootstrap/js/bootstrap.bundle.min.js',
             'custom/js/kick.js',

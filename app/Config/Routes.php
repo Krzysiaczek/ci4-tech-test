@@ -30,12 +30,15 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->group('admin', static function ($routes) {
-    $routes->get('/',       'Admin\Home::index', ['as' => 'admin.home']);
-    $routes->get('users/',  'Admin\Home::users', ['as' => 'admin.users']);
-});
 $routes->get('sandbox/', 'Front\Home::sandbox');
-$routes->get('/users', 'Front\Home::users', ['as' => 'front.users']);
+
+$routes->group('admin', static function ($routes) {
+    $routes->get('/', 'Admin\Home::index', ['as' => 'admin.home']);
+    $routes->get('users/', 'Admin\Home::users', ['as' => 'admin.users']);
+});
+
+$routes->post('users/create', 'Front\Home::create');
+$routes->get('users/', 'Front\Home::users', ['as' => 'front.users']);
 $routes->get('/', 'Front\Home::index', ['as' => 'home']);
 
 /*

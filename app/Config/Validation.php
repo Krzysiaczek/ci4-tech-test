@@ -41,4 +41,50 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public $users = [
+
+        'firstname' => [
+            'label'  => 'Firstname',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => '{field} is required!',
+            ],
+        ],
+        'lastname' => [
+            'label'  => 'Lastname',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => '{field} is required!',
+            ],
+        ],
+        'username' => [
+            'label'  => 'Username',
+            'rules'  => 'required|is_unique[users.username]',
+            'errors' => [
+                'required' => 'All accounts must have {field} provided.',
+            ],
+        ],
+        'password' => [
+            'label'  => 'Password',
+            'rules'  => 'required|min_length[8]|alpha_numeric_punct',
+            'errors' => [
+                'min_length' => 'Your {field} is too short. You want to get hacked?',
+            ],
+        ],
+        'email' => [
+            'label'  => 'Email',
+            'rules'  => 'required|valid_email|is_unique[users.email]',
+            'errors' => [
+                'min_length' => 'Your {field} is required and can be register only once.',
+            ],
+        ],
+        'mobile' => [
+            'label'  => 'Mobile',
+            'rules'  => 'required',
+            'errors' => [
+                'min_length' => '{field} is required!',
+            ],
+        ],
+    ];
 }
