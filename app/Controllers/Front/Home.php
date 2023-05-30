@@ -58,6 +58,7 @@ class Home extends BaseController
                 'mobile' => $post['mobile'],
                 'email' => $post['email'],
                 'password' => $post['password'],
+                'id' => $post['id'],
             ]);
         } catch (DatabaseException $e) {
             log_message('error', 'Unable to save the User: ' . $e->getMessage());

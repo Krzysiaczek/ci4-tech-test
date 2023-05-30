@@ -43,7 +43,10 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
 
     public $users = [
-
+        'id'    => [
+            'label' => 'ID',
+            'rules' => 'is_natural_no_zero|permit_empty',
+        ],
         'firstname' => [
             'label'  => 'Firstname',
             'rules'  => 'required',
@@ -60,7 +63,7 @@ class Validation extends BaseConfig
         ],
         'username' => [
             'label'  => 'Username',
-            'rules'  => 'required|is_unique[users.username]',
+            'rules'  => 'required|is_unique[users.username,id,{id}]',
             'errors' => [
                 'required' => 'All accounts must have {field} provided.',
             ],
@@ -74,7 +77,7 @@ class Validation extends BaseConfig
         ],
         'email' => [
             'label'  => 'Email',
-            'rules'  => 'required|valid_email|is_unique[users.email]',
+            'rules'  => 'required|valid_email|is_unique[users.email,id,{id}]',
             'errors' => [
                 'min_length' => 'Your {field} is required and can be register only once.',
             ],
