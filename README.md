@@ -1,52 +1,57 @@
-# CodeIgniter 4 Application Starter
+# PHP Technial Test based on CodeIgniter 4
 
-## What is CodeIgniter?
+## What is this project?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+This site is just a technical test, it was built to satisfy the specification visible below.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+Create a simple CRUD application to manage details and credentials of users. Use the technologies bellow to complete the task and host the final code project in your GitHub account. Using the best practices of coding, commit the development process by uploading into GitHub by the end of your day.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+#### Requirements:
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+You need to create a CRUD to add users and credentials. Fields like (firstname, lastname, email, mobile, username, password) are mandatory but you can use your imagination to add as many fields you like.
 
-## Installation & updates
+- Bootstrap 4 (https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+- CodeIgniter 4 (https://codeigniter.com/)
+- DataTables (https://www.datatables.net/)
+- JavaScript or jQuery
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+#### Optional:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+If you’re relly up to a challenge and want to impress, use SmartAdmin template for the project. Live demo here: https://www.gotbootstrap.com/themes/smartadmin/4.5.1/intel_analytics_dashboard.html
+You can download the template here: https://github.com/andreipa/smartadmin-html-full
+
 
 ## Setup
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Navigate to prefer folder and execute
+```
+$ git@github.com:Krzysiaczek/ci4-tech-test.git
+```
 
-## Important Change with index.php
+Go to new a new folder 
+```
+$ cd ci4-tech-test
+```
+adn execute 
+```
+$ composer install
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Copy `env` to `.env` and tailor for your app, specifically the baseURL and any database settings including the name of your choice, e.g. `ci4_sandbox`.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Back in terminal execute following commands to create a schema, tables and seed them with some fake data
+```
+$ php spark db:create ci4_sandbox
+$ php spark migrate
+$ spark db:seed UserSeeder
+```
+If the last command would fail due to duplicate values for unique fields, it's safe to try again as those fake methods occasionally could create a repetitive values.
 
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Finally time to launch the test site
+```
+$ php spark serve
+```
+and visit the link provided. Usually it's http://localhost:8080/ but sometimes port could be different.
 
 ## Server Requirements
 
