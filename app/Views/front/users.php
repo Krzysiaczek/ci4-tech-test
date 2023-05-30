@@ -14,6 +14,6 @@
 
 <?= $table->generate($data) ?>
 
-<?= $this->include('templates/front/modals/create-user') ?>
+<?= $this->include('templates/front/modals/user') ?>
 
 <?= $this->endSection() ?>

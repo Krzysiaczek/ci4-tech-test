@@ -24,7 +24,7 @@
 
                 <li class="nav-item <?= url_is('admin*') ? 'active' : '' ?>">
                     <a class="nav-link" href="<?= route_to('admin.home') ?>">
-                        Admin
+                        SuperAdmin
                         <?= url_is('admin*') ? '<span class="sr-only">(current)</span>' : '' ?>
                     </a>
                 </li>
