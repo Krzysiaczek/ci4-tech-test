@@ -37,6 +37,7 @@ $routes->group('admin', static function ($routes) {
     $routes->get('users/', 'Admin\Home::users', ['as' => 'admin.users']);
 });
 
+$routes->post('users/delete', 'Front\Home::delete');
 $routes->post('users/create', 'Front\Home::create');
 $routes->get('users/', 'Front\Home::users', ['as' => 'front.users']);
 $routes->get('/', 'Front\Home::index', ['as' => 'home']);

@@ -70,6 +70,33 @@ class Home extends BaseController
         return $this->response->setJSON($data);
     }
 
+    public function delete()
+    {
+        if (!$this->request->isAjax()) {
+            return $this->failForbidden('Only AJAX requests allowed!.');
+        }
+
+        $post = $this->request->getPost();
+
+        $data = $this->canBeDeleted($post);
+
+        if ($data['status'] == 'error') {
+            return $this->response->setJSON($data);
+        }
+
+        try {
+            $model = model(Users::class);
+            $model->delete($post['id']);
+        } catch (DatabaseException $e) {
+            log_message('error', 'Unable to save the User: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error', 'reasons' => 'Internal Error: Data has not been saved!'
+            ]);
+        }
+
+        return $this->response->setJSON($data);
+    }
+
     public function sandbox()
     {
         return view('front/sandbox', [
@@ -87,6 +114,19 @@ class Home extends BaseController
         if (!$validation->run($post, 'users')) {
             $data['status'] = 'error';
             $data['reasons'] = $validation->getErrors();
+            $data['csrf'] = csrf_hash();
+        }
+
+        return $data;
+    }
+
+    protected function canBeDeleted($post)
+    {
+        $data['status'] = 'success';
+
+        if (empty($post['id']) || empty(model('users')->getUsers($post['id']))) {
+            $data['status'] = 'error';
+            $data['reasons'] = 'No ID or not valid ID';
             $data['csrf'] = csrf_hash();
         }
 

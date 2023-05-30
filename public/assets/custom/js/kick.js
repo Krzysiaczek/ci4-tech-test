@@ -44,20 +44,21 @@ $( function () {
 
     var csrf
 
-    // CREATE USER
-    $(document).on('click', '#update', function(e) {
+    // CREATE/UPDATE User
+    $(document).on('click', '#submit', function(e) {
         e.preventDefault();
-        sendAjaxRequest()
+        sendAjaxRequest('create')
     });
 
+    // DELETE Action
     $(document).on('click', '#remove', function(e) {
-        // if(confirm('Are you sure?')){
-        //     alert('OK')
-        // }
-        console.log(e.target)
+        e.preventDefault();
+        if(confirm('Are you sure?')){
+            sendAjaxRequest('delete')
+        }
     });
 
-    // READ / UPDATE / DELETE
+    // Pass the data from table to Modal for READ / UPDATE / DELETE
     $(document).on("click", ".user-link", function () {
         var userSlug = $(this).data('slug');
         $(".modal-body #username").val( userSlug );
@@ -71,9 +72,9 @@ $( function () {
 
 });
 
-function sendAjaxRequest() {
+function sendAjaxRequest(url) {
 
-    if(!$("#form")[0].checkValidity()) {
+    if(url == 'create' && !$("#form")[0].checkValidity()) {
         $("#form")[0].reportValidity();
         return false
     }
@@ -92,7 +93,7 @@ function sendAjaxRequest() {
     }
 
     $.ajax({
-        url: "/users/create",
+        url: "/users/"+url,
         type: "post",
         dataType: "json",
         data: {
