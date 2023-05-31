@@ -49,28 +49,28 @@ class Validation extends BaseConfig
         ],
         'firstname' => [
             'label'  => 'Firstname',
-            'rules'  => 'required',
+            'rules'  => 'required|alpha',
             'errors' => [
                 'required' => '{field} is required!',
             ],
         ],
         'lastname' => [
             'label'  => 'Lastname',
-            'rules'  => 'required',
+            'rules'  => 'required|alpha',
             'errors' => [
                 'required' => '{field} is required!',
             ],
         ],
         'username' => [
             'label'  => 'Username',
-            'rules'  => 'required|is_unique[users.username,id,{id}]',
+            'rules'  => 'required|alpha_numeric_punct|is_unique[users.username,id,{id}]',
             'errors' => [
                 'required' => 'All accounts must have {field} provided.',
             ],
         ],
         'password' => [
             'label'  => 'Password',
-            'rules'  => 'required|min_length[8]|alpha_numeric_punct',
+            'rules'  => 'required|alpha_numeric_punct|min_length[8]|alpha_numeric_punct',
             'errors' => [
                 'min_length' => 'Your {field} is too short. You want to get hacked?',
             ],
@@ -84,7 +84,7 @@ class Validation extends BaseConfig
         ],
         'mobile' => [
             'label'  => 'Mobile',
-            'rules'  => 'required',
+            'rules'  => 'required|alpha_numeric_punct',
             'errors' => [
                 'min_length' => '{field} is required!',
             ],
