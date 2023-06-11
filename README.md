@@ -25,7 +25,7 @@ You can download the template here: https://github.com/andreipa/smartadmin-html-
 
 Navigate to prefer folder and execute
 ```
-$ git@github.com:Krzysiaczek/ci4-tech-test.git
+$ git clone git@github.com:Krzysiaczek/ci4-tech-test.git
 ```
 
 Go to new a new folder 
